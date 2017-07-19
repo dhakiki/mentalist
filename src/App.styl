@@ -1,0 +1,70 @@
+html, body, #root, .App
+  height 100%
+
+
+.App
+  display flex
+
+.App-side-nav
+  background lightgray
+  flex none
+  position relative
+
+.nav-logo
+  float right
+
+.app-body
+  flex 1 0 auto
+
+.side-nav-contents, .side-nav-header
+  padding 20px
+
+.side-nav-header
+  .App-logo
+    position relative
+    top 8px
+
+.nav-item
+  padding 20px
+  transition width 5s
+  width auto
+
+.side-nav-contents
+
+  &.collapsed
+    .nav-item
+      width 10px
+
+      span
+        display none
+
+  &.expanded
+    .nav-item
+      width auto
+
+      span
+        display auto
+
+.App-logo
+  display inline
+  height 25px
+
+.title
+  display inline
+  &.hidden
+    display: none;
+
+.App-header
+  background-color #222
+  height 150px
+  padding 20px
+  color white
+
+.toggle-collapse
+  background gray
+  height 51px
+  line-height 51px
+  position absolute
+  top 0
+  right -28px
+  padding 10px
