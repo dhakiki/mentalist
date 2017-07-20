@@ -18,8 +18,8 @@ class App extends Component {
         <div className="App">
           <div className={ClassNames({'App-side-nav': true, expanded: this.state.sideNavExpanded})}>
             <div className={ClassNames({'side-nav-header': true, expanded: this.state.sideNavExpanded})}>
-              <ListItem className="nav-item">
-                <div className='label'>Daily</div>
+              <ListItem className='header'>
+                <div className='label'>Mentalist</div>
                 <div className="App-logo nav-logo">
                   <img src={logo} className="App-logo" alt="logo" />
                 </div>
@@ -33,13 +33,13 @@ class App extends Component {
                 </div>
               </ListItem>
               <ListItem className="nav-item">
-                <div className='label'>Daily</div>
+                <div className='label'>Weekly</div>
                 <div className="App-logo nav-logo">
                   <img src={logo} className="App-logo" alt="logo" />
                 </div>
               </ListItem>
               <ListItem className="nav-item">
-                <div className='label'>Daily</div>
+                <div className='label'>Monthly</div>
                 <div className="App-logo nav-logo">
                   <img src={logo} className="App-logo" alt="logo" />
                 </div>

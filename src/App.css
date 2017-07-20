@@ -26,10 +26,11 @@ body,
 .side-nav-header .nav-logo {
   float: left;
 }
-.side-nav-header .nav-item {
+.side-nav-header .header {
+  padding: 20px;
   height: 50px;
 }
-.side-nav-header .nav-item .label {
+.side-nav-header .header .label {
   display: inline-block;
   font-size: 18px;
   font-weight: bold;
@@ -41,8 +42,8 @@ body,
   overflow: hidden;
   transition: height, width 100ms linear 300ms;
 }
-.side-nav-header.expanded .nav-item .label {
-  width: 40%;
+.side-nav-header.expanded .header .label {
+  width: 50%;
   height: 20px;
 }
 .side-nav-contents .nav-logo {
