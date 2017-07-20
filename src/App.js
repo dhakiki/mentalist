@@ -14,12 +14,10 @@ class App extends Component {
   }
 
   toggleSwitchJournal() {
-    console.log('eee');
     this.setState({switchJournalExpanded: !this.state.switchJournalExpanded});
   }
 
   render() {
-    console.log(this.state.switchJournalExpanded);
     return (
       <MuiThemeProvider>
         <div className="App">
