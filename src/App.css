@@ -8,41 +8,59 @@ body,
   display: flex;
 }
 .App-side-nav {
-  background: #d3d3d3;
   flex: none;
-  width: 80px;
+  width: 68px;
   transition: width 300ms linear 300ms;
   position: relative;
+  box-shadow: rgba(0,0,0,0.16) 0px 3px 10px, rgba(0,0,0,0.23) 0px 3px 10px;
 }
 .App-side-nav.expanded {
   width: 200px;
 }
-.nav-logo {
-  float: right;
-}
 .app-body {
   flex: 1 0 auto;
-}
-.side-nav-header {
-  padding: 20px;
-}
-.side-nav-header .App-logo {
-  position: relative;
-  top: 8px;
 }
 .nav-item {
   padding: 20px;
 }
-.side-nav-contents .nav-item > .label {
+.side-nav-header .nav-logo {
+  float: left;
+}
+.side-nav-header .nav-item {
+  height: 50px;
+}
+.side-nav-header .nav-item .label {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+  top: 4px;
+  width: 0px;
+  height: 0;
+  overflow: hidden;
+  transition: height, width 100ms linear 300ms;
+}
+.side-nav-header.expanded .nav-item .label {
+  width: 40%;
+  height: 20px;
+}
+.side-nav-contents .nav-logo {
+  float: right;
+}
+.side-nav-contents .nav-item {
+  height: 48px;
+}
+.side-nav-contents .nav-item .label {
   display: inline-block;
   width: 0px;
   height: 0;
   overflow: hidden;
   transition: height, width 100ms linear 300ms;
 }
-.side-nav-contents.expanded .nav-item > .label {
+.side-nav-contents.expanded .nav-item .label {
   width: 40%;
-  height: 100%;
+  height: auto;
 }
 .App-logo {
   display: inline;
@@ -73,9 +91,13 @@ body,
 .toggle-collapse {
   background: #808080;
   height: 51px;
+  width: 15px;
   line-height: 51px;
   position: absolute;
   top: 0;
-  right: -28px;
+  right: -35px;
   padding: 10px;
+}
+.toggle-collapse:hover {
+  cursor: pointer;
 }
