@@ -10,7 +10,12 @@ body,
 .App-side-nav {
   background: #d3d3d3;
   flex: none;
+  width: 80px;
+  transition: width 300ms linear 300ms;
   position: relative;
+}
+.App-side-nav.expanded {
+  width: 200px;
 }
 .nav-logo {
   float: right;
@@ -18,7 +23,6 @@ body,
 .app-body {
   flex: 1 0 auto;
 }
-.side-nav-contents,
 .side-nav-header {
   padding: 20px;
 }
@@ -28,30 +32,37 @@ body,
 }
 .nav-item {
   padding: 20px;
-  transition: width 5s;
-  width: auto;
 }
-.side-nav-contents.collapsed .nav-item {
-  width: 10px;
+.side-nav-contents .nav-item > .label {
+  display: inline-block;
+  width: 0px;
+  height: 0;
+  overflow: hidden;
+  transition: height, width 100ms linear 300ms;
 }
-.side-nav-contents.collapsed .nav-item span {
-  display: none;
-}
-.side-nav-contents.expanded .nav-item {
-  width: auto;
-}
-.side-nav-contents.expanded .nav-item span {
-  display: auto;
+.side-nav-contents.expanded .nav-item > .label {
+  width: 40%;
+  height: 100%;
 }
 .App-logo {
   display: inline;
   height: 25px;
 }
-.title {
-  display: inline;
+.side-nav-header .title {
+  display: inline-block;
+  float: right;
+  font-size: 18px;
+  font-weight: bold;
+  overflow: hidden;
+  position: relative;
+  width: 75%;
+  height: 100%;
+  top: 9px;
+  transition: width, height 100ms linear 600ms;
 }
-.title.hidden {
-  display: none;
+.side-nav-header.hidden .title {
+  width: 0px;
+  height: 0px;
 }
 .App-header {
   background-color: #222;

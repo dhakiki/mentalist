@@ -8,7 +8,12 @@ html, body, #root, .App
 .App-side-nav
   background lightgray
   flex none
+  width 80px
+  transition width 300ms linear 300ms
   position relative
+
+  &.expanded
+    width 200px
 
 .nav-logo
   float right
@@ -16,43 +21,51 @@ html, body, #root, .App
 .app-body
   flex 1 0 auto
 
-.side-nav-contents, .side-nav-header
+.side-nav-header
   padding 20px
 
-.side-nav-header
   .App-logo
     position relative
     top 8px
 
 .nav-item
   padding 20px
-  transition width 5s
-  width auto
 
 .side-nav-contents
-
-  &.collapsed
-    .nav-item
-      width 10px
-
-      span
-        display none
+  
+  .nav-item > .label
+    display inline-block
+    width 0px
+    height 0
+    overflow hidden
+    transition height, width 100ms linear 300ms
 
   &.expanded
-    .nav-item
-      width auto
-
-      span
-        display auto
+    .nav-item > .label
+      width 40%
+      height 100%
 
 .App-logo
   display inline
   height 25px
 
-.title
-  display inline
+.side-nav-header
+  .title
+    display inline-block
+    float right
+    font-size 18px
+    font-weight bold
+    overflow hidden
+    position relative
+    width 75%
+    height 100%
+    top 9px
+    transition width,height 100ms linear 600ms
+
   &.hidden
-    display: none;
+    .title
+      width 0px
+      height 0px
 
 .App-header
   background-color #222

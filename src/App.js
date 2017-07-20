@@ -13,32 +13,26 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-side-nav">
-          <div className="side-nav-header">
+        <div className={ClassNames({'App-side-nav': true, expanded: this.state.sideNavExpanded})}>
+          <div className={ClassNames({'side-nav-header': true, hidden: !this.state.sideNavExpanded})}>
             <img src={logo} className="App-logo" alt="logo" />
-            <h4 className={ClassNames({title: true, hidden: !this.state.sideNavExpanded})}>Mentalist</h4>
+            <div className={ClassNames({title: true, hidden: !this.state.sideNavExpanded})}>Mentalist</div>
           </div>
-          <div className={ClassNames({'side-nav-contents': true, expanded: this.state.sideNavExpanded, collapsed: !this.state.sideNavExpanded})}>
+          <div className={ClassNames({'side-nav-contents': true, expanded: this.state.sideNavExpanded})}>
             <div className="nav-item">
-              <span>Daily</span>
+              <div className='label'>Daily</div>
               <div className="App-logo nav-logo">
                 <img src={logo} className="App-logo" alt="logo" />
               </div>
             </div>
             <div className="nav-item">
-              <span>Weekly</span>
+              <div className='label'>Daily</div>
               <div className="App-logo nav-logo">
                 <img src={logo} className="App-logo" alt="logo" />
               </div>
             </div>
             <div className="nav-item">
-              <span>Montly</span>
-              <div className="App-logo nav-logo">
-                <img src={logo} className="App-logo" alt="logo" />
-              </div>
-            </div>
-            <div className="nav-item">
-              <span>Yearly</span>
+              <div className='label'>Daily</div>
               <div className="App-logo nav-logo">
                 <img src={logo} className="App-logo" alt="logo" />
               </div>
