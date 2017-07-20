@@ -49,6 +49,11 @@ body,
 .side-nav-contents .nav-logo {
   float: right;
 }
+.side-nav-contents .toggle-journal {
+  transition: height 100ms linear 0ms !important;
+  height: 0;
+  overflow: hidden;
+}
 .side-nav-contents .nav-item {
   height: 48px;
 }
@@ -58,6 +63,10 @@ body,
   height: 0;
   overflow: hidden;
   transition: height, width 100ms linear 300ms;
+}
+.side-nav-contents.expanded .toggle-journal {
+  height: 48px;
+  transition-delay: 600ms !important;
 }
 .side-nav-contents.expanded .nav-item .label {
   width: 40%;
