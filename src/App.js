@@ -9,17 +9,10 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {sideNavExpanded: true, switchJournalExpanded: false};
-    this.toggleSwitchJournal = this.toggleSwitchJournal.bind(this);
-  }
-
-  toggleSwitchJournal() {
-    console.log('eee');
-    this.setState({switchJournalExpanded: !this.state.switchJournalExpanded});
+    this.state = {sideNavExpanded: true};
   }
 
   render() {
-    console.log(this.state.switchJournalExpanded);
     return (
       <MuiThemeProvider>
         <div className="App">
@@ -33,18 +26,6 @@ class App extends Component {
               </ListItem>
             </div>
             <div className={ClassNames({'side-nav-contents': true, expanded: this.state.sideNavExpanded})}>
-              <ListItem
-                className='toggle-journal'
-                open={this.state.switchJournalExpanded}
-                onClick={this.toggleSwitchJournal}
-                nestedItems={[
-                  <ListItem className='toggle-journal'
-                    key={1}
-                    primaryText="Business Journal"
-                  />,
-                ]}>
-                <div className='label'>Personal Journal</div>
-              </ListItem>
               <ListItem className="nav-item">
                 <div className='label'>Daily</div>
                 <div className="App-logo nav-logo">
