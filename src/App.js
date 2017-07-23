@@ -4,7 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {ListItem} from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 import Toggle from 'material-ui/Toggle';
-import { IconMenu, MenuItem } from 'material-ui/IconMenu';
+import { IconMenu } from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -30,23 +30,13 @@ class App extends Component {
           name: 'Business Journal',
           key: 'bjnl'
         }
-      ]
+      ],
+      currentView: 'daily'
     };
     this.setViewMode = this.setViewMode.bind(this);
+    this.setCurrentView = this.setCurrentView.bind(this);
     this.toggleActiveJournal = this.toggleActiveJournal.bind(this);
   }
-
-  //<div className='expanded-toggle-view'>
-  //</div>
-  //<div className='collapsed-toggle-view'>
-  //  <IconMenu
-  //    iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-  //    anchorOrigin={{horizontal: 'left', vertical: 'top'}}
-  //    targetOrigin={{horizontal: 'left', vertical: 'top'}}
-  //  >
-  //    {this.renderToggleView()}
-  //  </IconMenu>
-  //</div>
 
   render() {
     return (
@@ -75,19 +65,19 @@ class App extends Component {
                   {this.renderToggleView()}
                 </IconMenu>
               </div>
-              <ListItem className="nav-item">
+              <ListItem className={ClassNames({"nav-item": true, active: this.state.currentView === 'daily'})} onClick={() => this.setCurrentView('daily')}>
                 <div className='label'>Daily</div>
                 <div className="App-logo nav-logo">
                   <img src={logo} className="App-logo" alt="logo" />
                 </div>
               </ListItem>
-              <ListItem className="nav-item">
+              <ListItem className={ClassNames({"nav-item": true, active: this.state.currentView === 'weekly'})} onClick={() => this.setCurrentView('weekly')}>
                 <div className='label'>Weekly</div>
                 <div className="App-logo nav-logo">
                   <img src={logo} className="App-logo" alt="logo" />
                 </div>
               </ListItem>
-              <ListItem className="nav-item">
+              <ListItem className={ClassNames({"nav-item": true, active: this.state.currentView === 'monthly'})} onClick={() => this.setCurrentView('monthly')}>
                 <div className='label'>Monthly</div>
                 <div className="App-logo nav-logo">
                   <img src={logo} className="App-logo" alt="logo" />
@@ -138,6 +128,10 @@ class App extends Component {
     if (viewMode==='plan' && this.state.activeJournals.length > 1) {
       this.setState({activeJournals: dropRight(this.state.activeJournals)});
     }
+  }
+
+  setCurrentView (currentView) {
+    this.setState({currentView});
   }
 
   toggleActiveJournal (activeJournal) {
