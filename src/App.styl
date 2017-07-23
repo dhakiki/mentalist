@@ -13,7 +13,7 @@ html, body, #root, .App
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
 
   &.expanded
-    width 200px
+    width 230px
 
 .app-body
   flex 1 0 auto
@@ -49,7 +49,25 @@ html, body, #root, .App
         height 20px
 
 .side-nav-contents
-  
+
+  .header
+    font-weight bold
+
+  .toggle-view
+    border 0
+    padding 0
+    height 0
+    overflow hidden
+    transition: border, height, padding 100ms linear 0ms
+
+    .header
+      padding 0 20px 20px 0
+
+  .journals
+    .header
+      padding 20px 0
+   
+
   .nav-logo
     float right
 
@@ -64,6 +82,14 @@ html, body, #root, .App
       transition height, width 100ms linear 300ms
 
   &.expanded
+    .toggle-view
+      border-color lightgray
+      border-style solid
+      border-width 2px 0
+      height 200px
+      padding 16px
+      transition-delay 600ms
+
     .nav-item
       .label
         width 40%
