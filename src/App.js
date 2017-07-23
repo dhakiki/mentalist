@@ -36,6 +36,18 @@ class App extends Component {
     this.toggleActiveJournal = this.toggleActiveJournal.bind(this);
   }
 
+  //<div className='expanded-toggle-view'>
+  //</div>
+  //<div className='collapsed-toggle-view'>
+  //  <IconMenu
+  //    iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+  //    anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+  //    targetOrigin={{horizontal: 'left', vertical: 'top'}}
+  //  >
+  //    {this.renderToggleView()}
+  //  </IconMenu>
+  //</div>
+
   render() {
     return (
       <MuiThemeProvider>
@@ -50,7 +62,19 @@ class App extends Component {
               </ListItem>
             </div>
             <div className={ClassNames({'side-nav-contents': true, expanded: this.state.sideNavExpanded})}>
-              {this.renderToggleView()}
+              <div className='full-menu'>
+                {this.renderToggleView()}
+              </div>
+              <div className='collapsed-menu'>
+                <IconMenu
+                  iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+                  anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+                  targetOrigin={{horizontal: 'left', vertical: 'top'}}
+                  menuStyle={{padding: '20px', 'max-width': '224px'}}
+                >
+                  {this.renderToggleView()}
+                </IconMenu>
+              </div>
               <ListItem className="nav-item">
                 <div className='label'>Daily</div>
                 <div className="App-logo nav-logo">

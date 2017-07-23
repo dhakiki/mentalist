@@ -53,19 +53,26 @@ html, body, #root, .App
   .header
     font-weight bold
 
-  .toggle-view
-    border 0
-    padding 0
-    height 0
-    overflow hidden
-    transition: border, height, padding 100ms linear 0ms
+  .collapsed-menu
+    height 48px
+    padding-left 8px
+    transition height, padding 100ms linear 0ms
 
-    .header
-      padding 0 20px 20px 0
+  .full-menu
 
-  .journals
-    .header
-      padding 20px 0
+    .toggle-view
+      border 0
+      padding 0
+      height 0
+      overflow hidden
+      transition border, height, padding 100ms linear 0ms
+
+      .header
+        padding 0 20px 20px 0
+
+    .journals
+      .header
+        padding 20px 0
    
 
   .nav-logo
@@ -82,13 +89,20 @@ html, body, #root, .App
       transition height, width 100ms linear 300ms
 
   &.expanded
-    .toggle-view
-      border-color lightgray
-      border-style solid
-      border-width 2px 0
-      height 200px
-      padding 16px
+    .collapsed-menu
+      height 0
+      padding 0
+      overflow hidden
       transition-delay 600ms
+
+    .full-menu
+      .toggle-view
+        border-color lightgray
+        border-style solid
+        border-width 2px 0
+        height 200px
+        padding 16px
+        transition-delay 600ms
 
     .nav-item
       .label

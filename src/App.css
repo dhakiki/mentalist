@@ -49,17 +49,22 @@ body,
 .side-nav-contents .header {
   font-weight: bold;
 }
-.side-nav-contents .toggle-view {
+.side-nav-contents .collapsed-menu {
+  height: 48px;
+  padding-left: 8px;
+  transition: height, padding 100ms linear 0ms;
+}
+.side-nav-contents .full-menu .toggle-view {
   border: 0;
   padding: 0;
   height: 0;
   overflow: hidden;
   transition: border, height, padding 100ms linear 0ms;
 }
-.side-nav-contents .toggle-view .header {
+.side-nav-contents .full-menu .toggle-view .header {
   padding: 0 20px 20px 0;
 }
-.side-nav-contents .journals .header {
+.side-nav-contents .full-menu .journals .header {
   padding: 20px 0;
 }
 .side-nav-contents .nav-logo {
@@ -75,7 +80,13 @@ body,
   overflow: hidden;
   transition: height, width 100ms linear 300ms;
 }
-.side-nav-contents.expanded .toggle-view {
+.side-nav-contents.expanded .collapsed-menu {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  transition-delay: 600ms;
+}
+.side-nav-contents.expanded .full-menu .toggle-view {
   border-color: #d3d3d3;
   border-style: solid;
   border-width: 2px 0;
