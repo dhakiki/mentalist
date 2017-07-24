@@ -30,8 +30,9 @@ body,
   float: left;
 }
 .side-nav-header .header {
+  border-bottom: 2px solid #d3d3d3 !important;
   padding: 20px;
-  height: 50px;
+  height: 71px;
 }
 .side-nav-header .header .label {
   display: inline-block;
@@ -58,11 +59,10 @@ body,
   transition: height, padding 100ms linear 0ms;
 }
 .side-nav-contents .full-menu .toggle-view {
-  border: 0;
   padding: 0;
   height: 0;
   overflow: hidden;
-  transition: border, height, padding 100ms linear 0ms;
+  transition: height, padding 100ms linear 0ms;
 }
 .side-nav-contents .full-menu .toggle-view .header {
   padding: 0 20px 20px 0;
@@ -90,9 +90,6 @@ body,
   transition-delay: 600ms;
 }
 .side-nav-contents.expanded .full-menu .toggle-view {
-  border-color: #d3d3d3;
-  border-style: solid;
-  border-width: 2px 0;
   height: 200px;
   padding: 16px;
   transition-delay: 600ms;
@@ -121,22 +118,23 @@ body,
   width: 0px;
   height: 0px;
 }
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: #fff;
+.horizontal-nav {
+  height: 71px;
 }
-.toggle-collapse {
-  background: #808080;
-  height: 51px;
-  width: 15px;
-  line-height: 51px;
-  position: absolute;
-  top: 0;
-  right: -35px;
+.horizontal-nav .toggle-collapse {
+  background: #d3d3d3;
   padding: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  line-height: 51px;
 }
-.toggle-collapse:hover {
+.horizontal-nav .toggle-collapse:hover {
   cursor: pointer;
+}
+.horizontal-nav .actions .item {
+  display: inline;
+  line-height: 51px;
+  padding: 0 10px;
 }

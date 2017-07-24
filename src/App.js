@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ClassNames from 'classnames';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
+import Avatar from 'material-ui/Avatar';
+import FlatButton from 'material-ui/FlatButton';
 import {ListItem} from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 import Toggle from 'material-ui/Toggle';
@@ -84,15 +87,30 @@ class App extends Component {
                 </div>
               </ListItem>
             </div>
-            <div className="toggle-collapse" onClick={() => this.setState({sideNavExpanded: !this.state.sideNavExpanded})}>
-              {this.state.sideNavExpanded &&  'c'}
-              {!this.state.sideNavExpanded &&  'e'}
-            </div>
           </div>
           <div className="app-body">
-            <div className="App-header">
-              <h2>Welcome to React</h2>
-            </div>
+            <AppBar
+              className='horizontal-nav'
+              iconElementLeft={
+                <div className='toggle-collapse' onClick={() => this.setState({sideNavExpanded: !this.state.sideNavExpanded})}>
+                  {this.state.sideNavExpanded &&  'c'}
+                  {!this.state.sideNavExpanded &&  'e'}
+                </div>
+              }
+              iconElementRight={
+                <div className='actions'>
+                  <div className='item'>
+                    <FlatButton label="Collections" />
+                  </div>
+                  <div className='item'>
+                    Welcome, John!
+                  </div>
+                  <div className='item'>
+                    <Avatar>J</Avatar>
+                  </div>
+                </div>
+              }
+            />
             <p className="App-intro">
               To get started, edit <code>src/App.js</code> and save to reload.
             </p>
