@@ -12,7 +12,6 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { dropRight, pull } from 'lodash';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -49,7 +48,7 @@ class App extends Component {
             <div className={ClassNames({'side-nav-header': true, expanded: this.state.sideNavExpanded})}>
               <ListItem className='header'>
                 <div className='label'>Mentalist</div>
-                <i className="material-icons logo">playlist_add_check</i>
+                <div className='logo'></div>
               </ListItem>
             </div>
             <div className={ClassNames({'side-nav-contents': true, expanded: this.state.sideNavExpanded})}>
