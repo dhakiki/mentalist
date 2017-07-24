@@ -9,7 +9,7 @@ body,
 }
 .App-side-nav {
   flex: none;
-  width: 68px;
+  width: 85px;
   transition: width 300ms linear 300ms;
   position: relative;
   box-shadow: rgba(0,0,0,0.16) 0px 3px 10px, rgba(0,0,0,0.23) 0px 3px 10px;
@@ -34,17 +34,30 @@ body,
   padding: 20px;
   height: 71px;
 }
+.side-nav-header .header .logo {
+  float: right;
+  font-size: 50px;
+  position: relative;
+  top: -8px;
+  left: 0;
+  border: 1px solid #add8e6;
+  border-radius: 100%;
+  transition: left 100ms linear 300ms;
+}
 .side-nav-header .header .label {
   display: inline-block;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   position: relative;
   text-align: center;
-  top: 4px;
+  top: 9px;
   width: 0px;
   height: 0;
   overflow: hidden;
-  transition: height, width 100ms linear 300ms;
+  transition: height, width 200ms linear 300ms;
+}
+.side-nav-header.expanded .header .logo {
+  left: -20px;
 }
 .side-nav-header.expanded .header .label {
   width: 50%;
@@ -70,7 +83,7 @@ body,
 .side-nav-contents .full-menu .journals .header {
   padding: 20px 0;
 }
-.side-nav-contents .nav-logo {
+.side-nav-contents .material-icons {
   float: right;
 }
 .side-nav-contents .nav-item {
@@ -97,10 +110,6 @@ body,
 .side-nav-contents.expanded .nav-item .label {
   width: 40%;
   height: auto;
-}
-.App-logo {
-  display: inline;
-  height: 25px;
 }
 .side-nav-header .title {
   display: inline-block;
@@ -132,6 +141,10 @@ body,
 }
 .horizontal-nav .toggle-collapse:hover {
   cursor: pointer;
+}
+.horizontal-nav .toggle-collapse .material-icons {
+  font-weight: bold;
+  line-height: 51px;
 }
 .horizontal-nav .actions .item {
   display: inline;

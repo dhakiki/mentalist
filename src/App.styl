@@ -7,7 +7,7 @@ html, body, #root, .App
 
 .App-side-nav
   flex none
-  width 68px
+  width 85px
   transition width 300ms linear 300ms
   position relative
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
@@ -34,20 +34,33 @@ html, body, #root, .App
     padding 20px
     height 71px
 
+    .logo
+      float right
+      font-size 50px
+      position relative
+      top -8px
+      left 0
+      border 1px solid lightblue
+      border-radius 100%
+      transition left 100ms linear 300ms
+
     .label
       display inline-block
-      font-size 18px
+      font-size 20px
       font-weight bold
       position relative
       text-align center
-      top 4px
+      top 9px
       width 0px
       height 0
       overflow hidden
-      transition height, width 100ms linear 300ms
+      transition height, width 200ms linear 300ms
 
   &.expanded
     .header
+      .logo
+        left -20px
+
       .label
         width 50%
         height 20px
@@ -78,7 +91,7 @@ html, body, #root, .App
         padding 20px 0
    
 
-  .nav-logo
+  .material-icons
     float right
 
   .nav-item
@@ -108,10 +121,6 @@ html, body, #root, .App
       .label
         width 40%
         height auto
-
-.App-logo
-  display inline
-  height 25px
 
 .side-nav-header
   .title
@@ -145,6 +154,10 @@ html, body, #root, .App
 
     &:hover
       cursor pointer
+
+    .material-icons
+      font-weight bold
+      line-height 51px
 
   .actions
     .item

@@ -49,9 +49,7 @@ class App extends Component {
             <div className={ClassNames({'side-nav-header': true, expanded: this.state.sideNavExpanded})}>
               <ListItem className='header'>
                 <div className='label'>Mentalist</div>
-                <div className="App-logo nav-logo">
-                  <img src={logo} className="App-logo" alt="logo" />
-                </div>
+                <i className="material-icons logo">playlist_add_check</i>
               </ListItem>
             </div>
             <div className={ClassNames({'side-nav-contents': true, expanded: this.state.sideNavExpanded})}>
@@ -70,21 +68,15 @@ class App extends Component {
               </div>
               <ListItem className={ClassNames({"nav-item": true, active: this.state.currentView === 'daily'})} onClick={() => this.setCurrentView('daily')}>
                 <div className='label'>Daily</div>
-                <div className="App-logo nav-logo">
-                  <img src={logo} className="App-logo" alt="logo" />
-                </div>
+                <i className="material-icons">view_day</i>
               </ListItem>
               <ListItem className={ClassNames({"nav-item": true, active: this.state.currentView === 'weekly'})} onClick={() => this.setCurrentView('weekly')}>
                 <div className='label'>Weekly</div>
-                <div className="App-logo nav-logo">
-                  <img src={logo} className="App-logo" alt="logo" />
-                </div>
+                <i className="material-icons">view_module</i>
               </ListItem>
               <ListItem className={ClassNames({"nav-item": true, active: this.state.currentView === 'monthly'})} onClick={() => this.setCurrentView('monthly')}>
                 <div className='label'>Monthly</div>
-                <div className="App-logo nav-logo">
-                  <img src={logo} className="App-logo" alt="logo" />
-                </div>
+                <i className="material-icons">view_comfy</i>
               </ListItem>
             </div>
           </div>
@@ -93,8 +85,12 @@ class App extends Component {
               className='horizontal-nav'
               iconElementLeft={
                 <div className='toggle-collapse' onClick={() => this.setState({sideNavExpanded: !this.state.sideNavExpanded})}>
-                  {this.state.sideNavExpanded &&  'c'}
-                  {!this.state.sideNavExpanded &&  'e'}
+                  {this.state.sideNavExpanded &&
+                    <i className="material-icons">keyboard_arrow_left</i>
+                  }
+                  {!this.state.sideNavExpanded &&
+                    <i className="material-icons">keyboard_arrow_right</i>
+                  }
                 </div>
               }
               iconElementRight={
