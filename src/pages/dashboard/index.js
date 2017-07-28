@@ -11,7 +11,7 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { dropRight, pull } from 'lodash';
 
-import './index.css';
+import './index.styl';
 
 class Dashboard extends Component {
 
