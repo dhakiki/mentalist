@@ -10,6 +10,7 @@ import { IconMenu } from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { dropRight, pull } from 'lodash';
+import { Link } from 'react-router-dom';
 
 import './index.styl';
 
@@ -19,7 +20,6 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       sideNavExpanded: true,
-      viewMode: 'view',
       activeJournals: ['pjnl'],
       journals: [
         {
@@ -31,9 +31,7 @@ class Dashboard extends Component {
           key: 'bjnl'
         }
       ],
-      currentView: 'daily'
     };
-    this.setViewMode = this.setViewMode.bind(this);
     this.setCurrentView = this.setCurrentView.bind(this);
     this.toggleActiveJournal = this.toggleActiveJournal.bind(this);
   }
@@ -41,9 +39,6 @@ class Dashboard extends Component {
   renderToggleView () {
     return (
       <div className='toggle-view'>
-        <div className='header'>Mode</div>
-        <RaisedButton label='View' onClick={() => this.setViewMode('view')} primary={this.state.viewMode==='view'} />
-        <RaisedButton label='Plan' onClick={() => this.setViewMode('plan')} primary={this.state.viewMode==='plan'} />
         <div className='journals'>
           <div className='header'>My Journals</div>
             {this.state.journals.map(({ name, key }) => (
@@ -59,12 +54,6 @@ class Dashboard extends Component {
     );
   }
 
-  setViewMode (viewMode) {
-    this.setState({viewMode});
-    if (viewMode==='plan' && this.state.activeJournals.length > 1) {
-      this.setState({activeJournals: dropRight(this.state.activeJournals)});
-    }
-  }
 
   setCurrentView (currentView) {
     this.setState({currentView});
@@ -72,16 +61,12 @@ class Dashboard extends Component {
 
   toggleActiveJournal (activeJournal) {
     let newActiveJournals = this.state.activeJournals;
-    if (this.state.viewMode ==='view') {
-      if (newActiveJournals.indexOf(activeJournal) !== -1) {
-        newActiveJournals = pull(newActiveJournals, activeJournal);
-      } else {
-        newActiveJournals.push(activeJournal);
-      }
-      this.setState({activeJournals: newActiveJournals});
+    if (newActiveJournals.indexOf(activeJournal) !== -1) {
+      newActiveJournals = pull(newActiveJournals, activeJournal);
     } else {
-      this.setState({activeJournals: [activeJournal]});
+      newActiveJournals.push(activeJournal);
     }
+    this.setState({activeJournals: newActiveJournals});
   }
 
   render() {
@@ -108,18 +93,24 @@ class Dashboard extends Component {
                 {this.renderToggleView()}
               </IconMenu>
             </div>
-            <ListItem className={ClassNames({"nav-item": true, active: this.state.currentView === 'daily'})} onClick={() => this.setCurrentView('daily')}>
-              <div className='label'>Daily</div>
-              <i className="material-icons">view_day</i>
-            </ListItem>
-            <ListItem className={ClassNames({"nav-item": true, active: this.state.currentView === 'weekly'})} onClick={() => this.setCurrentView('weekly')}>
-              <div className='label'>Weekly</div>
-              <i className="material-icons">view_module</i>
-            </ListItem>
-            <ListItem className={ClassNames({"nav-item": true, active: this.state.currentView === 'monthly'})} onClick={() => this.setCurrentView('monthly')}>
-              <div className='label'>Monthly</div>
-              <i className="material-icons">view_comfy</i>
-            </ListItem>
+            <Link to='/dashboard/daily'>
+              <ListItem className={ClassNames({"nav-item": true, active: this.props.viewType === 'daily'})}>
+                <div className='label'>Daily</div>
+                <i className="material-icons">view_day</i>
+              </ListItem>
+            </Link>
+            <Link to='/dashboard/weekly'>
+              <ListItem className={ClassNames({"nav-item": true, active: this.props.currentView === 'weekly'})}>
+                <div className='label'>Weekly</div>
+                <i className="material-icons">view_module</i>
+              </ListItem>
+            </Link>
+            <Link to='/dashboard/monthly'>
+              <ListItem className={ClassNames({"nav-item": true, active: this.props.currentView === 'monthly'})}>
+                <div className='label'>Monthly</div>
+                <i className="material-icons">view_comfy</i>
+              </ListItem>
+            </Link>
           </div>
         </div>
         <div className="app-body">
@@ -138,9 +129,6 @@ class Dashboard extends Component {
             iconElementRight={
               <div className='actions'>
                 <div className='item'>
-                  <FlatButton label="Collections" />
-                </div>
-                <div className='item'>
                   Welcome, John!
                 </div>
                 <div className='item'>
@@ -150,7 +138,7 @@ class Dashboard extends Component {
             }
           />
           <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
+            {this.props.children}
           </p>
         </div>
       </div>
