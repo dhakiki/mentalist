@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ClassNames from 'classnames';
 import AppBar from 'material-ui/AppBar';
 import Avatar from 'material-ui/Avatar';
+import Dialog from 'material-ui/Dialog';
+import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import {ListItem} from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -21,6 +23,7 @@ class Dashboard extends Component {
     this.state = {
       sideNavExpanded: true,
       activeJournals: ['pjnl'],
+      createDialogOpened: false,
       journals: [
         {
           name: 'Personal Journal',
@@ -34,6 +37,9 @@ class Dashboard extends Component {
     };
     this.setCurrentView = this.setCurrentView.bind(this);
     this.toggleActiveJournal = this.toggleActiveJournal.bind(this);
+    this.renderCreateDialog = this.renderCreateDialog.bind(this);
+    this.closeCreateDialog = this.closeCreateDialog.bind(this);
+    this.openCreateDialog = this.openCreateDialog.bind(this);
   }
 
   renderToggleView () {
@@ -54,6 +60,44 @@ class Dashboard extends Component {
     );
   }
 
+  renderCreateDialog () {
+    const actions = [
+      <FlatButton
+        label="Cancel"
+        primary={true}
+        onClick={this.closeCreateDialog}
+      />,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        keyboardFocused={true}
+        onClick={this.closeCreateDialog}
+      />,
+    ];
+    return (
+      <Dialog
+        title="Create New Task"
+        actions={actions}
+        modal={false}
+        open={this.state.createDialogOpened}
+        onRequestClose={this.closeCreateDialog}
+      >
+        <TextField
+          hintText="Describe Task Here"
+          floatingLabelText="Task"
+        />
+      </Dialog>
+    );
+    
+  }
+
+  closeCreateDialog () {
+    this.setState({createDialogOpened: false});
+  };
+
+  openCreateDialog () {
+    this.setState({createDialogOpened: true});
+  };
 
   setCurrentView (currentView) {
     this.setState({currentView});
@@ -100,17 +144,28 @@ class Dashboard extends Component {
               </ListItem>
             </Link>
             <Link to='/dashboard/weekly'>
-              <ListItem className={ClassNames({"nav-item": true, active: this.props.currentView === 'weekly'})}>
+              <ListItem className={ClassNames({"nav-item": true, active: this.props.viewType === 'weekly'})}>
                 <div className='label'>Weekly</div>
                 <i className="material-icons">view_module</i>
               </ListItem>
             </Link>
             <Link to='/dashboard/monthly'>
-              <ListItem className={ClassNames({"nav-item": true, active: this.props.currentView === 'monthly'})}>
+              <ListItem className={ClassNames({"nav-item": true, active: this.props.viewType === 'monthly'})}>
                 <div className='label'>Monthly</div>
                 <i className="material-icons">view_comfy</i>
               </ListItem>
             </Link>
+            <ListItem
+              className={ClassNames({"nav-item": true})}
+              primaryTogglesNestedList={true}
+              nestedItems={[
+                <ListItem key={1} onClick={this.openCreateDialog}>Task</ListItem>
+              ]}
+            >
+              <div className='label'>Create</div>
+              <i className="material-icons">plus_one</i>
+            </ListItem>
+            {this.renderCreateDialog()}
           </div>
         </div>
         <div className="app-body">
