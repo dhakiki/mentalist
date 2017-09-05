@@ -113,7 +113,7 @@ class Dashboard extends Component {
   }
 
   addTaskAndClose () {
-    this.props.store.tasks.addTask(this.state.newTask);
+    this.props.tasksStore.addTask(this.state.newTask);
     this.setState({ newTask: '', createDialogOpened: false });
   }
 
@@ -216,4 +216,4 @@ class Dashboard extends Component {
 
 }
 
-export default inject('store')(Dashboard);
+export default inject('tasksStore')(Dashboard);

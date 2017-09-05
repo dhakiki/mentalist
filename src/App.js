@@ -5,7 +5,7 @@ import { Redirect, Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import * as mobx from 'mobx';
 import createHistory from 'history/createBrowserHistory';
-import store from './store/';
+import * as stores from './store';
 
 import SignInPage from './pages/sign_in';
 import Dashboard from './pages/dashboard/';
@@ -26,7 +26,7 @@ class App extends Component {
 
   render() {
     return (
-      <Provider store={store}>
+      <Provider {...stores}>
         <MuiThemeProvider>
           <Router history={createHistory()}>
               <Switch>

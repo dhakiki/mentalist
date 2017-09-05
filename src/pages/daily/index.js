@@ -5,10 +5,10 @@ import { inject, observer } from 'mobx-react';
 class Daily extends Component {
   render () {
     return (
-      <Dashboard viewType='daily' store={this.props.store}>
+      <Dashboard viewType='daily'>
         <div>Hey this is a daily view</div>
         <div>
-          {this.props.store.tasks.tasks.map( ({task}) =>
+          {this.props.tasksStore.tasks.map( ({task}) =>
             <div key={task}>{task}</div>
           )}
         </div>
@@ -17,4 +17,4 @@ class Daily extends Component {
   }
 }
 
-export default inject('store')(observer(Daily));
+export default inject('tasksStore')(observer(Daily));

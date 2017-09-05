@@ -1,5 +1,5 @@
-import TaskStore from './task';
+import tasksStore from './task';
 
-export default {
-  tasks: TaskStore,
+export {
+  tasksStore,
 };
