@@ -17,4 +17,4 @@ class WeeklyPage extends Component {
   }
 }
 
-export default observer(WeeklyPage);
+export default WeeklyPage;
