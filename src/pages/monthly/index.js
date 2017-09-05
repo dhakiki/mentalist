@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Dashboard from '../dashboard';
+import { inject, observer } from 'mobx-react';
 
 class Monthly extends Component {
   render () {
@@ -16,4 +17,4 @@ class Monthly extends Component {
   }
 }
 
-export default Monthly;
+export default inject('store')(observer(Monthly));

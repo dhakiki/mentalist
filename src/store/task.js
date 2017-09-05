@@ -1,6 +1,11 @@
+import { action, observable } from 'mobx';
+
 class TaskStore {
   constructor () {
-    this.tasks = [{ task: 'ya', completed: false, assignee: null}];
+    this.tasks = observable([]);
+
+    //wrap state mutations in actions decorator
+    this.addTask = action(this.addTask.bind(this));
   };
 
 	get completedTasksCount() {
