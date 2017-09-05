@@ -8,11 +8,10 @@ import createHistory from 'history/createBrowserHistory';
 import * as stores from './store';
 
 import SignInPage from './pages/sign_in';
-import Dashboard from './pages/dashboard/';
 
-import Daily from './pages/daily/';
-import Weekly from './pages/weekly/';
-import Monthly from './pages/monthly/';
+import DailyPage from './pages/daily/container';
+import WeeklyPage from './pages/weekly/container';
+import MonthlyPage from './pages/monthly/container';
 
 // forces state updates to occur only on explicitly declared action methods
 mobx.useStrict(true);
@@ -32,9 +31,9 @@ class App extends Component {
               <Switch>
                 <Route exact={true} path='/' render={() => <Redirect to={{ pathname: '/sign-in' }} />} />
                 <Route exact={true} path = '/sign-in' component={SignInPage} />
-                <Route exact={true} path = '/dashboard/daily' component={Daily} />
-                <Route exact={true} path = '/dashboard/weekly' component={Weekly} />
-                <Route exact={true} path = '/dashboard/monthly' component={Monthly} />
+                <Route exact={true} path = '/dashboard/daily' component={DailyPage} />
+                <Route exact={true} path = '/dashboard/weekly' component={WeeklyPage} />
+                <Route exact={true} path = '/dashboard/monthly' component={MonthlyPage} />
               </Switch>
           </Router>
         </MuiThemeProvider>

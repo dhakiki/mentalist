@@ -13,7 +13,6 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { dropRight, pull } from 'lodash';
 import { Link } from 'react-router-dom';
-import { inject } from 'mobx-react';
 
 import './index.styl';
 
@@ -113,7 +112,7 @@ class Dashboard extends Component {
   }
 
   addTaskAndClose () {
-    this.props.tasksStore.addTask(this.state.newTask);
+    this.props.addTask(this.state.newTask);
     this.setState({ newTask: '', createDialogOpened: false });
   }
 
@@ -216,4 +215,4 @@ class Dashboard extends Component {
 
 }
 
-export default inject('tasksStore')(Dashboard);
+export default Dashboard;
