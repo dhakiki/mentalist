@@ -24,6 +24,7 @@ class Dashboard extends Component {
       sideNavExpanded: true,
       activeJournals: ['pjnl'],
       createDialogOpened: false,
+      newTask: '',
       journals: [
         {
           name: 'Personal Journal',
@@ -40,6 +41,8 @@ class Dashboard extends Component {
     this.renderCreateDialog = this.renderCreateDialog.bind(this);
     this.closeCreateDialog = this.closeCreateDialog.bind(this);
     this.openCreateDialog = this.openCreateDialog.bind(this);
+    this.updateNewTask = this.updateNewTask.bind(this);
+    this.addTaskAndClose = this.addTaskAndClose.bind(this);
   }
 
   renderToggleView () {
@@ -71,7 +74,7 @@ class Dashboard extends Component {
         label="Submit"
         primary={true}
         keyboardFocused={true}
-        onClick={this.closeCreateDialog}
+        onClick={this.addTaskAndClose}
       />,
     ];
     return (
@@ -85,6 +88,7 @@ class Dashboard extends Component {
         <TextField
           hintText="Describe Task Here"
           floatingLabelText="Task"
+          onChange={this.updateNewTask}
         />
       </Dialog>
     );
@@ -92,7 +96,7 @@ class Dashboard extends Component {
   }
 
   closeCreateDialog () {
-    this.setState({createDialogOpened: false});
+    this.setState({newTask: '', createDialogOpened: false});
   };
 
   openCreateDialog () {
@@ -101,6 +105,15 @@ class Dashboard extends Component {
 
   setCurrentView (currentView) {
     this.setState({currentView});
+  }
+
+  updateNewTask (event, newTask) {
+    this.setState({ newTask });
+  }
+
+  addTaskAndClose () {
+    this.props.store.tasks.addTask(this.state.newTask);
+    this.setState({ newTask: '', createDialogOpened: false });
   }
 
   toggleActiveJournal (activeJournal) {
@@ -192,9 +205,9 @@ class Dashboard extends Component {
               </div>
             }
           />
-          <p className="App-intro">
+          <div className="App-intro">
             {this.props.children}
-          </p>
+          </div>
         </div>
       </div>
     );
