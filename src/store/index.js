@@ -1,5 +1,3 @@
-import tasksStore from './task';
+import tasksStore from "./task";
 
-export {
-  tasksStore,
-};
+export default { tasksStore };
