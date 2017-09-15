@@ -10,6 +10,7 @@
     "babel-preset-stage-0": "6.24.1",
     "classnames": "2.2.5",
     "css-loader": "^0.28.4",
+    "eslint": "4.7.0",
     "history": "^4.6.3",
     "html-webpack-plugin": "2.29.0",
     "lodash": "4.17.4",
@@ -31,5 +32,11 @@
   "scripts": {
     "start-js": "react-scripts start",
     "start": "webpack-dev-server"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0"
   }
 }

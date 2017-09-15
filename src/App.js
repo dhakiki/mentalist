@@ -18,7 +18,6 @@ import MonthlyPage from './pages/monthly/container';
 mobx.useStrict(true);
 
 class App extends Component {
-
   constructor(props) {
     super(props);
     injectTapEventPlugin();
@@ -30,19 +29,18 @@ class App extends Component {
         <MuiThemeProvider>
           <Router history={createHistory()}>
             <Switch>
-              <Route exact={true} path='/' render={() => <Redirect to={{ pathname: '/sign-in' }} />} />
-              <Route exact={true} path = '/sign-in' component={withRouter(SignInPage)} />
-              <Route exact={true} path='/dashboard' render={() => <Redirect to={{ pathname: '/dashboard/daily' }} />} />
-              <Route exact={true} path = '/dashboard/daily' component={withRouter(DailyPage)} />
-              <Route exact={true} path = '/dashboard/weekly' component={withRouter(WeeklyPage)} />
-              <Route exact={true} path = '/dashboard/monthly' component={withRouter(MonthlyPage)} />
+              <Route exact path="/" render={() => <Redirect to={{ pathname: '/sign-in' }} />} />
+              <Route exact path="/sign-in" component={withRouter(SignInPage)} />
+              <Route exact path="/dashboard" render={() => <Redirect to={{ pathname: '/dashboard/daily' }} />} />
+              <Route exact path="/dashboard/daily" component={withRouter(DailyPage)} />
+              <Route exact path="/dashboard/weekly" component={withRouter(WeeklyPage)} />
+              <Route exact path="/dashboard/monthly" component={withRouter(MonthlyPage)} />
             </Switch>
           </Router>
         </MuiThemeProvider>
       </Provider>
     );
   }
-
 }
 
 export default App;

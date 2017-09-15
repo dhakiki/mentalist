@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 
 import './index.styl';
 
 class SignInPage extends Component {
-
   render() {
     return (
-      <div className='sign-in'>
-        <div className='card'>
+      <div className="sign-in">
+        <div className="card">
           <Card>
             <CardHeader
               title="Welcome to Mentalist!"
@@ -32,7 +31,6 @@ class SignInPage extends Component {
       </div>
     );
   }
-
 }
 
 export default SignInPage;
