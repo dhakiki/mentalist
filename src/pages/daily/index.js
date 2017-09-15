@@ -17,4 +17,4 @@ class DailyPage extends Component {
   }
 }
 
-export default DailyPage;
+export default observer(DailyPage);

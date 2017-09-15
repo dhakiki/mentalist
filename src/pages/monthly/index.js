@@ -17,4 +17,4 @@ class MonthlyPage extends Component {
   }
 }
 
-export default MonthlyPage;
+export default observer(MonthlyPage);
