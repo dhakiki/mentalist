@@ -12,7 +12,7 @@ class TaskStore {
     	return this.tasks.filter(
 			todo => todo.completed === true
 		).length;
-    }
+  }
 
 	report() {
 		if (this.tasks.length === 0)
