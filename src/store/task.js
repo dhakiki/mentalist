@@ -1,4 +1,4 @@
-import { action, observable } from 'mobx';
+import { action, observable } from "mobx";
 
 class TaskStore {
   constructor() {
@@ -9,22 +9,24 @@ class TaskStore {
   }
 
   get completedTasksCount() {
-    	return this.tasks.filter(
-      todo => todo.completed === true,
-    ).length;
+    return this.tasks.filter(todo => todo.completed === true).length;
   }
 
   report() {
-    if (this.tasks.length === 0) { return '<none>'; }
-    return `Next todo: "${this.tasks[0].task}". ` +
-   `Progress: ${this.completedTasksCount}/${this.tasks.length}`;
+    if (this.tasks.length === 0) {
+      return "<none>";
+    }
+    return (
+      `Next todo: "${this.tasks[0].task}". ` +
+      `Progress: ${this.completedTasksCount}/${this.tasks.length}`
+    );
   }
 
   addTask(task) {
     this.tasks.push({
       task,
       completed: false,
-      assignee: null,
+      assignee: null
     });
   }
 }

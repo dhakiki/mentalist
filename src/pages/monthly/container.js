@@ -1,9 +1,14 @@
-import React from 'react';
-import MonthlyPage from './index';
-import { inject, observer } from 'mobx-react';
+import React from "react";
+import PropTypes from "prop-types";
+import { inject, observer } from "mobx-react";
+import MonthlyPage from "./index";
 
 const MonthlyPageContainer = ({ tasksStore, ...props }) => (
   <MonthlyPage tasks={tasksStore.tasks} {...props} />
 );
 
-export default inject('tasksStore')(observer(MonthlyPageContainer));
+MonthlyPageContainer.propTypes = {
+  tasksStore: PropTypes.object.isRequired
+};
+
+export default inject("tasksStore")(observer(MonthlyPageContainer));

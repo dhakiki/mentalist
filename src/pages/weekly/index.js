@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import Dashboard from '../../containers/dashboard/container';
-import { observer } from 'mobx-react';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { observer } from "mobx-react";
+import Dashboard from "../../containers/dashboard/container";
 
 class WeeklyPage extends Component {
   render() {
@@ -8,13 +9,15 @@ class WeeklyPage extends Component {
       <Dashboard viewType="weekly">
         <div>Hey this is a weekly view</div>
         <div>
-          {this.props.tasks.map(({ task }) =>
-            <div key={task}>{task}</div>,
-          )}
+          {this.props.tasks.map(({ task }) => <div key={task}>{task}</div>)}
         </div>
       </Dashboard>
     );
   }
 }
+
+WeeklyPage.propTypes = {
+  tasks: PropTypes.array.isRequired
+};
 
 export default observer(WeeklyPage);

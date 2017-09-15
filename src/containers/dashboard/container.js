@@ -1,9 +1,14 @@
-import React from 'react';
-import Dashboard from './index';
-import things, { inject, observer } from 'mobx-react';
+import PropTypes from "prop-types";
+import React from "react";
+import { inject, observer } from "mobx-react";
+import Dashboard from "./index";
 
 const DashboardContainer = ({ tasksStore, ...props }) => (
   <Dashboard addTask={tasksStore.addTask} {...props} />
 );
 
-export default inject('tasksStore')(observer(DashboardContainer));
+DashboardContainer.propTypes = {
+  tasksStore: PropTypes.object.isRequired
+};
+
+export default inject("tasksStore")(observer(DashboardContainer));

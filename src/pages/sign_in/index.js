@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import TextField from 'material-ui/TextField';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
+import FlatButton from "material-ui/FlatButton";
+import TextField from "material-ui/TextField";
 
-import './index.styl';
+import "./index.styl";
 
 class SignInPage extends Component {
   render() {
@@ -24,7 +25,10 @@ class SignInPage extends Component {
               </div>
             </CardText>
             <CardActions>
-              <FlatButton label="Sign In" onClick={() => this.props.history.push('/dashboard')} />
+              <FlatButton
+                label="Sign In"
+                onClick={() => this.props.history.push("/dashboard")}
+              />
             </CardActions>
           </Card>
         </div>
@@ -32,5 +36,9 @@ class SignInPage extends Component {
     );
   }
 }
+
+SignInPage.propTypes = {
+  history: PropTypes.object
+};
 
 export default SignInPage;
