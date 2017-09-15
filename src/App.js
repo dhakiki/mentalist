@@ -5,6 +5,7 @@ import { Redirect, Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import * as mobx from 'mobx';
 import createHistory from 'history/createBrowserHistory';
+import { withRouter } from 'react-router';
 import * as stores from './store';
 
 import SignInPage from './pages/sign_in';
@@ -28,13 +29,14 @@ class App extends Component {
       <Provider {...stores}>
         <MuiThemeProvider>
           <Router history={createHistory()}>
-              <Switch>
-                <Route exact={true} path='/' render={() => <Redirect to={{ pathname: '/sign-in' }} />} />
-                <Route exact={true} path = '/sign-in' component={SignInPage} />
-                <Route exact={true} path = '/dashboard/daily' component={DailyPage} />
-                <Route exact={true} path = '/dashboard/weekly' component={WeeklyPage} />
-                <Route exact={true} path = '/dashboard/monthly' component={MonthlyPage} />
-              </Switch>
+            <Switch>
+              <Route exact={true} path='/' render={() => <Redirect to={{ pathname: '/sign-in' }} />} />
+              <Route exact={true} path = '/sign-in' component={withRouter(SignInPage)} />
+              <Route exact={true} path='/dashboard' render={() => <Redirect to={{ pathname: '/dashboard/daily' }} />} />
+              <Route exact={true} path = '/dashboard/daily' component={withRouter(DailyPage)} />
+              <Route exact={true} path = '/dashboard/weekly' component={withRouter(WeeklyPage)} />
+              <Route exact={true} path = '/dashboard/monthly' component={withRouter(MonthlyPage)} />
+            </Switch>
           </Router>
         </MuiThemeProvider>
       </Provider>
