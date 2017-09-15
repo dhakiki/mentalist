@@ -1,14 +1,20 @@
 import React, {Component} from 'react';
-import Dashboard from '../dashboard';
+import Dashboard from '../../containers/dashboard/container';
+import { observer } from 'mobx-react';
 
-class Weekly extends Component {
+class WeeklyPage extends Component {
   render () {
     return (
       <Dashboard viewType='weekly'>
-        Hey this is a weekly view
+        <div>Hey this is a weekly view</div>
+        <div>
+          {this.props.tasks.map( ({task}) =>
+            <div key={task}>{task}</div>
+          )}
+        </div>
       </Dashboard>
     );
   }
 }
 
-export default Weekly;
+export default observer(WeeklyPage);
