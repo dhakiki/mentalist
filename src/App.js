@@ -8,7 +8,7 @@ import createHistory from "history/createBrowserHistory";
 import { withRouter } from "react-router";
 import * as stores from "./store";
 
-import SignInPage from "./pages/sign_in";
+import SignInPage from "./pages/sign_in/container";
 
 import DailyPage from "./pages/daily/container";
 import WeeklyPage from "./pages/weekly/container";
@@ -25,7 +25,7 @@ class App extends Component {
 
   render() {
     return (
-      <Provider {...stores}>
+      <Provider {...stores.default}>
         <MuiThemeProvider>
           <Router history={createHistory()}>
             <Switch>

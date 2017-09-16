@@ -37,4 +37,17 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+          apiKey: "AIzaSyC36azblDxYch3IxVuki1qdu-H5_aZnNYk",
+              authDomain: "mentalist-v1.firebaseapp.com",
+                  databaseURL: "https://mentalist-v1.firebaseio.com",
+                      projectId: "mentalist-v1",
+                          storageBucket: "mentalist-v1.appspot.com",
+                              messagingSenderId: "18854070278"
+                                  };
+    firebase.initializeApp(config);
+  </script>
 </html>

@@ -1,3 +1,4 @@
 import tasksStore from "./task";
+import usersStore from "./user";
 
-export default { tasksStore };
+export default { tasksStore, usersStore };
