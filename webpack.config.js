@@ -3,7 +3,7 @@ const webpack = require('webpack'); //to access built-in plugins
 const path = require('path');
 
 const config = {
-  entry: './src/index.js',
+  entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: path.resolve(__dirname, 'public/'),
     filename: 'bundle.js',

@@ -8,8 +8,9 @@ class UserStore {
     this.login = action(this.login.bind(this));
   }
 
-  login(credentials) {
-    loginService.login(credentials)
+  async login(credentials) {
+    const creds = await loginService.login(credentials);
+    this.user = creds;
   }
 
 }
