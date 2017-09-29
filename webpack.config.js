@@ -12,6 +12,18 @@ const config = {
   },
   devServer: {
     port: 3000,
+    proxy: [
+      {
+        context: ['/api'],
+        target: {
+          protocol: 'http',
+          port: 3001,
+          host: 'localhost',
+        },
+        changeOrigin: true,
+        pathRewrite: { '^/api': '' },
+      },
+    ],
     historyApiFallback: true
   },
   module: {
@@ -35,7 +47,7 @@ const config = {
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({template: __dirname + '/index.html'})
-  ]
+  ],
 };
 
 module.exports = config;
