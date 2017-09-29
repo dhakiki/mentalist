@@ -25,7 +25,6 @@ admin.initializeApp({
 });
 
 app.post('/login', function (req, res) {
-  console.log('hey', req.body);
   firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
     .then(function(creds) {
       res.send(creds);
