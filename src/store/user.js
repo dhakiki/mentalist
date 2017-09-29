@@ -9,7 +9,6 @@ class UserStore {
   }
 
   login(credentials) {
-    console.log('hi', credentials);
     loginService.login(credentials)
   }
 
