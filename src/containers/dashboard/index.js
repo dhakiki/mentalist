@@ -4,6 +4,7 @@ import ClassNames from "classnames";
 import AppBar from "material-ui/AppBar";
 import Avatar from "material-ui/Avatar";
 import Dialog from "material-ui/Dialog";
+import MenuItem from "material-ui/MenuItem";
 import TextField from "material-ui/TextField";
 import FlatButton from "material-ui/FlatButton";
 import { ListItem } from "material-ui/List";
@@ -232,7 +233,13 @@ class Dashboard extends Component {
               <div className="actions">
                 <div className="item">Welcome, John!</div>
                 <div className="item">
-                  <Avatar>J</Avatar>
+                  <IconMenu iconButtonElement={<Avatar>J</Avatar>}>
+                    <MenuItem
+                      primaryText="Logout"
+                      onClick={() =>
+                        this.props.onLogout(this.onLogoutSuccess.bind(this))}
+                    />
+                  </IconMenu>
                 </div>
               </div>
             }
@@ -241,6 +248,11 @@ class Dashboard extends Component {
         </div>
       </div>
     );
+  }
+
+  onLogoutSuccess() {
+    console.log(this.props);
+    this.props.history.push("/sign-in");
   }
 }
 

@@ -10,8 +10,8 @@ class SignInPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: ""
     };
   }
   render() {
@@ -27,26 +27,36 @@ class SignInPage extends Component {
               <div>
                 <TextField
                   hintText="Enter email"
-                  onChange={event => this.setState({email: event.target.value})}
+                  onChange={event =>
+                    this.setState({ email: event.target.value })}
                 />
               </div>
               <div>
                 <TextField
                   hintText="Enter Password"
-                  onChange={event => this.setState({password: event.target.value})}
+                  onChange={event =>
+                    this.setState({ password: event.target.value })}
                 />
               </div>
             </CardText>
             <CardActions>
               <FlatButton
                 label="Sign In"
-                onClick={() => this.props.onSignIn({email: this.state.email, password: this.state.password})}
+                onClick={() =>
+                  this.props.onSignIn(
+                    { email: this.state.email, password: this.state.password },
+                    this.onLoginSuccess.bind(this)
+                  )}
               />
             </CardActions>
           </Card>
         </div>
       </div>
     );
+  }
+
+  onLoginSuccess() {
+    this.props.history.push("/dashboard/daily");
   }
 }
 
