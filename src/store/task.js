@@ -24,9 +24,13 @@ class TaskStore {
 
   addTask(task) {
     this.tasks.push({
-      task,
+      item: task,
+      archived: false,
       completed: false,
-      assignee: null
+      duration: {mins: 30},
+      assignee: null,
+      priority: false,
+      yPosition: null,
     });
   }
 }
