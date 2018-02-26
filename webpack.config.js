@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
+const ExtendedDefinePlugin = require('extended-define-webpack-plugin')
 const webpack = require('webpack'); //to access built-in plugins
 const path = require('path');
 
@@ -41,12 +42,15 @@ const config = {
         ]
       },
       {test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader'},
-      { test: /\.svg$/, use: 'svg-inline-loader' }
+      { test: /\.svg$/, use: 'svg-react-loader' }
     ]
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
-    new HtmlWebpackPlugin({template: __dirname + '/index.html'})
+    new HtmlWebpackPlugin({template: __dirname + '/index.html'}),
+    new ExtendedDefinePlugin({
+      'process.env.NODE_ENV': 'production',
+    })
   ],
 };
 

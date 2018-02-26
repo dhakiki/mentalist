@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
 import TextField from "material-ui/TextField";
+import Logo from '../../assets/mentalist_logo_v1.svg'
 
 import "./index.styl";
 
@@ -20,7 +21,7 @@ class SignInPage extends Component {
         <div className="card">
           <Card>
             <CardHeader
-              title="Welcome to Mentalist!"
+              title={this.renderHeader()}
               subtitle="Please sign in"
             />
             <CardText>
@@ -53,6 +54,15 @@ class SignInPage extends Component {
         </div>
       </div>
     );
+  }
+
+  renderHeader() {
+    return (
+      <div>
+        <Logo />
+        <div>{"Welcome to Mentalist!"}</div>
+      </div>
+    )
   }
 
   onLoginSuccess() {
