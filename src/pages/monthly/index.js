@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { observer } from "mobx-react";
 import Dashboard from "../../containers/dashboard/container";
+import Task from "../../components/task";
 
 class MonthlyPage extends Component {
   render() {
@@ -9,7 +10,9 @@ class MonthlyPage extends Component {
       <Dashboard viewType="monthly" history={this.props.history}>
         <div>Hey this is a monthly view</div>
         <div>
-          {this.props.tasks.map(({ task }) => <div key={task}>{task}</div>)}
+          {this.props.tasks.map(task => (
+            <Task type='task' value={task} />
+          ))}
         </div>
       </Dashboard>
     );
