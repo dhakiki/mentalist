@@ -31,18 +31,27 @@ const config = {
     rules: [
       {
         test: /\.js$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
             query: {
               compact: false,
-              plugins: ['transform-react-jsx']
-            }
-          }
+              plugins: ['transform-react-jsx'],
+            },
+          },
         ]
       },
-      {test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader'},
-      { test: /\.svg$/, use: 'svg-react-loader' }
+      {
+        test: /\.styl$/,
+        loader: 'style-loader!css-loader!stylus-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.svg$/,
+        use: ['svg-react-loader'],
+        exclude: /node_modules/
+      }
     ]
   },
   plugins: [
